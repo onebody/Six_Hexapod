@@ -1,0 +1,55 @@
+
+// 初始状态
+void ctl_init() {
+  //蹲下
+  ctl_down();
+}
+
+// 站立
+void ctl_stand() {
+  //Serial.println("#0P2200#1P2100#2P800#4P2200#5P2100#6P1400#12P2200#13P2100#14P1400#16P800#17P900#18P2000#20P800#21P900#22P1600#28P800#29P900#30P1600T1000");
+  Serial.println("stand up");
+  delay(1000);
+}
+
+// 蹲下
+void ctl_down() {
+  //Serial.println("#0P2200#1P2200#2P800#4P2200#5P2200#6P1400#12P2200#13P2200#14P1400#16P800#17P800#18P2000#20P800#21P800#22P1600#28P800#29P800#30P1600T1000");
+  Serial.println("sit down");
+  delay(1000);
+}
+
+// 把所有的脚抬起来
+void ctl_LiftUpAll() {
+  //Serial.println("#0P800#1P2200#2P800#4P800#5P2200#6P1400#12P800#13P2200#14P1400#16P2200#17P800#18P2000#20P2200#21P800#22P1600#28P2200#29P800#30P1600T1000");
+  Serial.println("lift up all");
+  delay(1000);
+}
+
+// 前进
+void ctl_forward() {
+  //Serial.println("#0P2200#1P2100#2P800#4P2200#5P2100#6P1400#12P2200#13P2100#14P1400#16P800#17P900#18P2000#20P800#21P900#22P1600#28P800#29P900#30P1600T1000");
+  Serial.println("forward");
+  delay(1000);
+}
+
+// 左转
+void ctl_left() {
+  //Serial.println("#0P2200#1P2200#2P800#4P2200#5P2200#6P1400#12P2200#13P2200#14P1400#16P800#17P800#18P2000#20P800#21P800#22P1600#28P800#29P800#30P1600T1000");
+  Serial.println("left ");
+  delay(1000);
+}
+
+// 右转
+void ctl_right() {
+  //Serial.println("#0P800#1P2200#2P800#4P800#5P2200#6P1400#12P800#13P2200#14P1400#16P2200#17P800#18P2000#20P2200#21P800#22P1600#28P2200#29P800#30P1600T1000");
+  Serial.println("right ");
+  delay(1000);
+}
+
+// 后退
+void ctl_back() {
+  //Serial.println("#0P800#1P2200#2P800#4P800#5P2200#6P1400#12P800#13P2200#14P1400#16P2200#17P800#18P2000#20P2200#21P800#22P1600#28P2200#29P800#30P1600T1000");
+  Serial.println("back");
+  delay(1000);
+}
