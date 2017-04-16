@@ -1,4 +1,6 @@
 #include <PS2X_lib.h>  //for v1.6
+#include <Wire.h>
+#include <Adafruit_PWMServoDriver.h>
 
 /******************************************************************
  * set pins connected to PS2 controller:
@@ -45,14 +47,30 @@ void (* resetFunc) (void) = 0;
 #define PLAY_CTL_LIFTUPALL      7
 
 
+
+// called this way, it uses the default address 0x40
+Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
+// you can also call it with a different address you want
+//Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x41);
+
+// Depending on your servo make, the pulse width min and max may vary, you 
+// want these to be as small/large as possible without hitting the hard stop
+// for max range. You'll have to tweak them as necessary to match the servos you
+// have!
+#define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
+#define SERVOMAX  600 // this is the 'maximum' pulse length count (out of 4096)
+
 void setup()
 {
   //32路舵机控制器拨码开关都置1
   Serial.begin(115200);
-
+  //
+  servo_setup();
+  
   ps2x_setup();
   //
   control(PLAY_CTL_INIT);
+  
 }
 
 void loop() {
@@ -74,6 +92,6 @@ void loop() {
     ps2x_DualShock_Controller();
   }
 
-  delay(50);
+  //delay(50);
 }
 

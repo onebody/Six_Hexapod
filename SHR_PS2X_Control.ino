@@ -37,10 +37,13 @@ void ps2x_Guitar_Hero_Controller() {
 void ps2x_DualShock_Controller() {
   ps2x.read_gamepad(false, vibrate); //read controller and set large motor to spin at 'vibrate' speed
 
-  if (ps2x.Button(PSB_START))        //will be TRUE as long as button is pressed
+  if (ps2x.Button(PSB_START)) {       //will be TRUE as long as button is pressed
     Serial.println("Start is being held");
-  if (ps2x.Button(PSB_SELECT))
+  }
+  if (ps2x.Button(PSB_SELECT)) {
     Serial.println("Select is being held");
+    pwm.setPWM(15, 0, SERVOMIN);
+  }
 
   if (ps2x.Button(PSB_PAD_UP)) {
     //will be TRUE as long as button is pressed
@@ -78,7 +81,7 @@ void ps2x_DualShock_Controller() {
   if (ps2x.NewButtonState()) {        //will be TRUE if any button changes state (on to off, or off to on)
     if (ps2x.Button(PSB_L3)) {
       Serial.println("L3 pressed");
-      
+
     }
 
     if (ps2x.Button(PSB_R3)) {

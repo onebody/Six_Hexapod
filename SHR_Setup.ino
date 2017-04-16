@@ -1,4 +1,17 @@
 
+void servo_setup() {
+  Serial.println("begin : 12 channel Servo");
+
+  pwm.begin();
+  pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
+
+  for (int num = 0; num < 15; num++) {
+    pwm.setPWM(num, 0, SERVOMIN);
+  }
+
+  Serial.println("end : 12 channel Servo");
+}
+
 void ps2x_setup() {
   delay(500);  //added delay to give wireless ps2 module some time to startup, before configuring it
 

@@ -14,9 +14,17 @@ void ctl_stand() {
 
 // 蹲下
 void ctl_down() {
+  
+//pwm.setPWM(15, 0, SERVOMAX);
+ // delay(500);
+//  pwm.setPWM(15, 0, SERVOMIN);
+  
+ // pwm.setPWM(0, 0, SERVOMAX);
+ // delay(500);
+ // pwm.setPWM(0, 0, SERVOMIN);
+ // delay(500);
   //Serial.println("#0P2200#1P2200#2P800#4P2200#5P2200#6P1400#12P2200#13P2200#14P1400#16P800#17P800#18P2000#20P800#21P800#22P1600#28P800#29P800#30P1600T1000");
   Serial.println("sit down");
-  delay(1000);
 }
 
 // 把所有的脚抬起来
@@ -53,3 +61,4 @@ void ctl_back() {
   Serial.println("back");
   delay(1000);
 }
+
